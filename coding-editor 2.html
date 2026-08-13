@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding — Aarav Shah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1e1f29;
+    --panel:#262735;
+    --panel-2:#2d2f40;
+    --border:#3c3e52;
+    --ink:#d7dae0;
+    --ink-soft:#7b7f95;
+    --green:#8fd67a;
+    --blue:#6fb8f2;
+    --purple:#c792ea;
+    --orange:#f2a65a;
+    --pink:#f27a9d;
+    --mono:'JetBrains Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:var(--mono); color:var(--ink); background:var(--bg);
+    padding:0 0 80px;
+  }
+
+  /* ---------- WINDOW CHROME ---------- */
+  .titlebar{
+    background:var(--panel-2); border-bottom:1px solid var(--border);
+    display:flex; align-items:center; gap:20px; padding:12px clamp(16px,4vw,32px);
+    position:sticky; top:0; z-index:10;
+  }
+  .tab{
+    background:var(--panel); border:1px solid var(--border); border-bottom:none;
+    padding:6px 16px; font-size:0.75rem; color:var(--ink-soft); border-radius:6px 6px 0 0;
+  }
+  .tab.active{color:var(--blue); border-color:var(--blue);}
+
+  main{max-width:980px; margin:0 auto; padding:clamp(30px,6vw,56px) clamp(16px,4vw,32px) 0;}
+
+  .jsdoc{
+    color:var(--ink-soft); font-size:0.85rem; line-height:1.9; margin-bottom:40px;
+  }
+  .jsdoc .tag{color:var(--purple);}
+  .jsdoc .name{color:var(--ink); font-weight:700; font-size:1.1rem;}
+
+  h2.section-title{
+    font-size:0.95rem; color:var(--pink); margin:48px 0 20px; letter-spacing:0.02em;
+  }
+  h2.section-title .kw{color:var(--purple);}
+  h2.section-title:first-of-type{margin-top:0;}
+
+  .file-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;
+  }
+  .code-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:8px;
+    overflow:hidden; counter-reset:line;
+  }
+  .file-tab{
+    background:var(--panel-2); padding:8px 14px; font-size:0.72rem; color:var(--ink-soft);
+    border-bottom:1px solid var(--border); display:flex; justify-content:space-between;
+  }
+  .file-tab .ext{color:var(--orange);}
+  .code-body{padding:14px 14px 16px;}
+  .line{
+    counter-increment:line; position:relative; padding-left:2.4em;
+    font-size:0.82rem; line-height:1.75; white-space:pre-wrap; word-break:break-word;
+  }
+  .line::before{
+    content:counter(line); position:absolute; left:0; width:1.8em; text-align:right;
+    color:var(--ink-soft); opacity:.45; font-size:0.78rem;
+  }
+  .kw{color:var(--purple);}
+  .prop{color:var(--blue);}
+  .str{color:var(--green);}
+  .num{color:var(--orange);}
+  .punc{color:var(--ink-soft);}
+  a.str{text-decoration:none; border-bottom:1px dashed var(--green);}
+  a.str:hover{color:var(--pink); border-color:var(--pink);}
+
+  .json-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:8px;
+    overflow:hidden; counter-reset:line;
+  }
+  .json-card .code-body{padding:16px 14px 18px;}
+
+  footer{
+    max-width:980px; margin:60px auto 0; padding:0 clamp(16px,4vw,32px);
+    color:var(--ink-soft); font-size:0.78rem;
+  }
+  footer .punc{color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="titlebar">
+  <div class="tab active">coding.js</div>
+  <div class="tab">apps.json</div>
+</div>
+
+<main>
+
+  <div class="jsdoc">
+    <span class="punc">/**</span><br>
+    &nbsp;<span class="tag">@author</span> <span class="name">Aarav Shah</span><br>
+    &nbsp;<span class="tag">@file</span> Coding & Apps — Skills and Projects<br>
+    <span class="punc">*/</span>
+  </div>
+
+  <h2 class="section-title"><span class="kw">const</span> projects <span class="punc">= [</span></h2>
+
+  <div class="file-grid">
+
+    <div class="code-card">
+      <div class="file-tab"><span>learningHTML<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"5+ Months of HTML & CSS"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">detail</span> <span class="punc">=</span> <span class="str">"Steadily building a front-end foundation."</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">duration</span> <span class="punc">=</span> <span class="str">"5+ months"</span><span class="punc">;</span></div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="file-tab"><span>internship<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"HTML/CSS Internship"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">mentor</span> <span class="punc">=</span> <span class="str">"Ritwik Sir"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">detail</span> <span class="punc">=</span> <span class="str">"In-college mentor, hands-on HTML & CSS."</span><span class="punc">;</span></div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="file-tab"><span>recreations<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"Website Recreations — Minimalio"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">count</span> <span class="punc">=</span> <span class="num">2</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">stack</span> <span class="punc">=</span> <span class="punc">[</span><span class="str">"HTML"</span><span class="punc">,</span> <span class="str">"CSS"</span><span class="punc">];</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">link</span> <span class="punc">=</span> <a class="str" href="https://a4s3-next.github.io/MinimalioThemes/" target="_blank" rel="noopener">"a4s3-next.github.io/MinimalioThemes"</a><span class="punc">;</span></div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="file-tab"><span>speakKind<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"SpeakKind"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">purpose</span> <span class="punc">=</span> <span class="str">"Bullying & body-shaming awareness"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">features</span> <span class="punc">=</span> <span class="punc">[</span><span class="str">"chatbot"</span><span class="punc">,</span> <span class="str">"backend server"</span><span class="punc">,</span> <span class="str">"articles"</span><span class="punc">];</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">link</span> <span class="punc">=</span> <a class="str" href="https://a4s3-next.github.io/BodyShamingDesign/" target="_blank" rel="noopener">"a4s3-next.github.io/BodyShamingDesign"</a><span class="punc">;</span></div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="file-tab"><span>multiplayerGame<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"Offline Multiplayer Game"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">status</span> <span class="punc">=</span> <span class="str">"in progress"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">detail</span> <span class="punc">=</span> <span class="str">"Building from the ground up."</span><span class="punc">;</span></div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="file-tab"><span>zombieShooter<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"Zombie Shooter"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">platform</span> <span class="punc">=</span> <span class="str">"itch.io"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">link</span> <span class="punc">=</span> <a class="str" href="https://a4s3.itch.io/zombie-shooter" target="_blank" rel="noopener">"a4s3.itch.io/zombie-shooter"</a><span class="punc">;</span></div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="file-tab"><span>webPlatformer<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"Web Platformer"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">platform</span> <span class="punc">=</span> <span class="str">"itch.io (browser)"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">link</span> <span class="punc">=</span> <a class="str" href="https://a4s3.itch.io/webplatformer" target="_blank" rel="noopener">"a4s3.itch.io/webplatformer"</a><span class="punc">;</span></div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="file-tab"><span>motionLight<span class="ext">.js</span></span><span>JS</span></div>
+      <div class="code-body">
+        <div class="line"><span class="kw">const</span> <span class="prop">title</span> <span class="punc">=</span> <span class="str">"Motion-Sensor Light"</span><span class="punc">;</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">tools</span> <span class="punc">=</span> <span class="punc">[</span><span class="str">"Arduino IDE"</span><span class="punc">,</span> <span class="str">"C++"</span><span class="punc">,</span> <span class="str">"Tinkercad"</span><span class="punc">];</span></div>
+        <div class="line"><span class="kw">const</span> <span class="prop">link</span> <span class="punc">=</span> <a class="str" href="https://www.tinkercad.com/things/55KQUgLqUR9-brilliant-waasa/editel?sharecode=rTyT0v13nR5x8GpLX-zNNl4VU6NoX7TnnUtwURBL54M" target="_blank" rel="noopener">"tinkercad.com/circuit"</a><span class="punc">;</span></div>
+      </div>
+    </div>
+
+  </div>
+  <h2 class="section-title"><span class="punc">];</span></h2>
+
+  <h2 class="section-title"><span class="kw">const</span> apps <span class="punc">= {</span></h2>
+  <div class="json-card">
+    <div class="code-body">
+      <div class="line"><span class="prop">Blender</span><span class="punc">:</span> <span class="str">"Intermediate"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">ArduinoIDE</span><span class="punc">:</span> <span class="str">"Basic"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">Tinkercad</span><span class="punc">:</span> <span class="str">"Basic"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">Fusion360</span><span class="punc">:</span> <span class="str">"Learning"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">Figma</span><span class="punc">:</span> <span class="str">"Learning"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">Canva</span><span class="punc">:</span> <span class="str">"Intermediate"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">DaVinciResolve</span><span class="punc">:</span> <span class="str">"Basic"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">Scratch</span><span class="punc">:</span> <span class="str">"Intermediate"</span><span class="punc">,</span></div>
+      <div class="line"><span class="prop">Unity</span><span class="punc">:</span> <span class="str">"Learning"</span></div>
+    </div>
+  </div>
+  <h2 class="section-title"><span class="punc">};</span></h2>
+
+</main>
+
+<footer>
+  <span class="punc">// end of file</span>
+</footer>
+
+</body>
+</html>
